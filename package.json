@@ -38,6 +38,7 @@
   "homepage": "https://github.com/kerimkeskin/masterpass-turkey-react#readme",
   "devDependencies": {
     "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
     "eslint": "^8.27.0",
