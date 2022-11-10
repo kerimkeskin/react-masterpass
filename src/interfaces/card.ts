@@ -56,4 +56,25 @@ export namespace Card {
   export interface IRegisterRequest {
     params: IReqCardRegister
   }
+
+  export interface IReqCardDelete {
+    uiChannelType: string
+    mobileAccountConfig: string
+    sendSms: string
+    mmrpConfig: string
+    identityVerificationFlag: string
+    eActionType: string
+    delinkReason: string
+    actionType: string
+    defaultAccount?: string
+    cpinFlag?: string
+    cardTypeFlag?: string
+    fp: string
+    msisdn: string
+    token: string
+    accountAliasName: string
+  }
+  export interface IDeleteRequest {
+    params: IReqCardDelete
+  }
 }
