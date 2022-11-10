@@ -1,5 +1,7 @@
 import { Card } from '../../interfaces/card'
 import { MP } from '../../interfaces/masterpass'
+import { handleValidationType } from '../../utils/error-helpers'
+import { RSA } from '../../utils/RSA'
 import request from '../request'
 
 class card {
@@ -27,6 +29,71 @@ class card {
     } else {
       return {
         errorMessage: response.Data.Body.Fault.Detail.ServiceFaultDetail.ResponseDesc,
+      }
+    }
+  }
+
+  /**
+   *
+   * card register
+   *
+   * @static
+   * @memberof card
+   */
+  static register = async ({ params }: Card.IRegisterRequest) => {
+    const defaultParams = {
+      cardHolderName: null,
+      email: null,
+      lastName: null,
+      firstName: null,
+      homePostalCode: null,
+      homeCountryCode: null,
+      homeState: null,
+      homeCity: null,
+      homeAddress: null,
+      accountAliasName: null,
+      uiChannelType: '6',
+      timeZone: '+01',
+      sendSms: 'N',
+      referenceNo: null,
+      mobileAccountConfig: 'MWA',
+      identityVerificationFlag: 'Y',
+      mmrpConfig: '110010',
+      defaultAccount: 'Y',
+      cpinFlag: 'Y',
+      cardTypeFlag: '05',
+      eActionType: 'A',
+      delinkReason: null,
+      clientIp: null,
+      actionType: 'A',
+      fp: null,
+    }
+
+    const serviceParams: Card.IReqCardRegister = {
+      ...defaultParams,
+      ...params,
+      ...{ rtaPan: RSA.encrypt(params.rtaPan), cvc: RSA.encrypt(params.cvc) },
+    }
+
+    const response: MP.IRes = await request.post(`/register`, serviceParams)
+
+    if (response.error)
+      return {
+        errorMessage: response.error,
+      }
+
+    const errorResponse = response.Data.Body.Fault.Detail.ServiceFaultDetail
+
+    if (errorResponse.ResponseCode === '0000' || errorResponse.ResponseCode === '') {
+      return {
+        data: response.Data.Body.Response,
+      }
+    } else {
+      return {
+        validationToken: response.Data.Body.Fault.Detail.ServiceFaultDetail.Token,
+        validationType: handleValidationType(errorResponse),
+        errorMessage: errorResponse.ResponseDesc,
+        url3D: errorResponse.Url3D,
       }
     }
   }
