@@ -55,7 +55,6 @@ class card {
       uiChannelType: '6',
       timeZone: '+01',
       sendSms: 'N',
-      referenceNo: null,
       mobileAccountConfig: 'MWA',
       identityVerificationFlag: 'Y',
       mmrpConfig: '110010',
@@ -64,7 +63,6 @@ class card {
       cardTypeFlag: '05',
       eActionType: 'A',
       delinkReason: null,
-      clientIp: null,
       actionType: 'A',
       fp: null,
     }
@@ -94,6 +92,52 @@ class card {
         validationType: handleValidationType(errorResponse),
         errorMessage: errorResponse.ResponseDesc,
         url3D: errorResponse.Url3D,
+      }
+    }
+  }
+
+  /**
+   *
+   * card delete
+   *
+   * @static
+   * @memberof card
+   */
+  static delete = async ({ params }: Card.IDeleteRequest) => {
+    const defaultParams = {
+      timeZone: '03',
+      uiChannelType: '6',
+      mobileAccountConfig: 'WMA',
+      sendSms: 'Y',
+      mmrpConfig: '110010',
+      identityVerificationFlag: 'Y',
+      eActionType: 'A',
+      delinkReason: '',
+      actionType: 'A',
+      defaultAccount: 'Y',
+      cpinFlag: 'Y',
+      cardTypeFlag: '05',
+      fp: '',
+    }
+
+    const serviceParams: Card.IReqCardDelete = { ...defaultParams, ...params }
+
+    const response: MP.IRes = await request.post(`/deleteCard`, serviceParams)
+
+    if (response.error)
+      return {
+        errorMessage: response.error,
+      }
+
+    const errorResponse = response.Data.Body.Fault.Detail.ServiceFaultDetail
+
+    if (errorResponse.ResponseCode === '0000' || errorResponse.ResponseCode === '') {
+      return {
+        data: response.Data.Body.Response,
+      }
+    } else {
+      return {
+        errorMessage: errorResponse.ResponseDesc,
       }
     }
   }
