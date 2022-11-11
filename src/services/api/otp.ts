@@ -47,6 +47,44 @@ class otp {
       }
     }
   }
+
+  /**
+   *
+   * otp resend validation code
+   *
+   * @static
+   * @memberof otp
+   */
+  static resend = async ({ params }: OTP.IOTPResendRequest) => {
+    const defaultParams = {
+      validationRefNo: '',
+      sendSms: 'Y',
+    }
+
+    const serviceParams: OTP.IReqOTPResend = { ...defaultParams, ...params }
+
+    const response: MP.IRes = await request.post(`/resendOtp`, serviceParams)
+
+    if (response.error)
+      return {
+        errorMessage: response.error,
+      }
+
+    const errorResponse = response.Data.Body.Fault.Detail.ServiceFaultDetail
+
+    if (errorResponse.ResponseCode === '0000' || errorResponse.ResponseCode === '') {
+      return {
+        data: response.Data.Body.Response,
+        validationToken: response.Data.Body.Response.Result.TransactionBody.Token,
+      }
+    } else {
+      return {
+        validationToken: response.Data.Body.Fault.Detail.ServiceFaultDetail.Token,
+        validationType: handleValidationType(errorResponse),
+        errorMessage: errorResponse.ResponseDesc,
+      }
+    }
+  }
 }
 
 export { otp }
