@@ -1,6 +1,6 @@
 {
-  "name": "@kerimkeskin/masterpass-turkey-react",
-  "version": "1.0.0",
+  "name": "@kerim-keskin/masterpass-react",
+  "version": "1.0.3",
   "description": "masterpass integration for react apps",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -10,7 +10,7 @@
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
     "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run prettier && npm run lint",
+    "prepublishOnly": "npm run prettier && npm run lint",
     "rollup": "rollup -c",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
@@ -18,25 +18,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kerimkeskin/masterpass-turkey-react.git"
+    "url": "git+https://github.com/kerimkeskin/masterpass-react.git"
   },
   "files": [
     "dist",
-    "LICENSE",
-    "README.md"
+    "LICENSE"
   ],
   "keywords": [
     "react",
     "typescript",
-    "masterpass-turkey",
+    "masterpass",
     "masterpass-react"
   ],
   "author": "Kerim Keskin (@kerimkeskin)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kerimkeskin/masterpass-turkey-react/issues"
+    "url": "https://github.com/kerimkeskin/masterpass-react/issues"
   },
-  "homepage": "https://github.com/kerimkeskin/masterpass-turkey-react#readme",
+  "homepage": "https://github.com/kerimkeskin/masterpass-react#readme",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^23.0.2",
     "@rollup/plugin-node-resolve": "^15.0.1",
