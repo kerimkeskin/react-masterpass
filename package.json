@@ -1,6 +1,6 @@
 {
   "name": "@kerim-keskin/masterpass-react",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "masterpass integration for react apps",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
