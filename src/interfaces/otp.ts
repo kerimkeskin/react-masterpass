@@ -11,4 +11,13 @@ export namespace OTP {
     sendSms: string
     fp: string | null
   }
+
+  export interface IOTPResendRequest {
+    params: IReqOTPResend
+  }
+
+  export interface IReqOTPResend {
+    validationRefNo: string
+    sendSms: string
+  }
 }
