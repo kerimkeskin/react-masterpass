@@ -1,20 +1,20 @@
-const resolve = require('@rollup/plugin-node-resolve')
-const commonjs = require('@rollup/plugin-commonjs')
-const typescript = require('@rollup/plugin-typescript')
+import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
+import typescript from '@rollup/plugin-typescript'
 
-const packageJson = require('./package.json')
+import { main, module as _module } from './package.json'
 
-module.exports = [
+export default [
   {
     input: 'src/index.ts',
     output: [
       {
-        file: packageJson.main,
+        file: main,
         format: 'cjs',
         sourcemap: true,
       },
       {
-        file: packageJson.module,
+        file: _module,
         format: 'esm',
         sourcemap: true,
       },
