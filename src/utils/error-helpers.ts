@@ -12,3 +12,16 @@ export const handleValidationType = (errorResponse: MP.IServiceFaultDetail) => {
       return ''
   }
 }
+
+export const handleValidationTypeForPurchase = (errorResponse: MP.IServiceFaultDetail) => {
+  switch (errorResponse.ResponseCode) {
+    case '5001':
+      return 'showOTP'
+    case '5010':
+      return 'show3D'
+    case '5002':
+      return 'showMpin'
+    default:
+      return ''
+  }
+}
