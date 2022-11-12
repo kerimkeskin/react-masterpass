@@ -1,3 +1,4 @@
+import { account } from './account'
 import { card } from './card'
 import { otp } from './otp'
 import { payment } from './payment'
@@ -29,6 +30,13 @@ class api {
    * @memberof api
    */
   static payment = payment
+  /**
+   *
+   * Account
+   * @static
+   * @memberof api
+   */
+  static account = account
 }
 
 export { api }
