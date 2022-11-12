@@ -4,12 +4,12 @@ export namespace OTP {
     type: 'mpin' | 'otp'
   }
   export interface IReqOTPVerify {
-    validationCode: string
+    validationCode?: string
     pinType?: string
     validationRefNo: string
-    token: string
-    sendSms: string
-    fp: string | null
+    token?: string
+    sendSms?: string
+    fp?: string | null
   }
 
   export interface IOTPResendRequest {
@@ -18,6 +18,6 @@ export namespace OTP {
 
   export interface IReqOTPResend {
     validationRefNo: string
-    sendSms: string
+    sendSms?: string
   }
 }

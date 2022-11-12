@@ -58,18 +58,18 @@ export namespace Card {
   }
 
   export interface IReqCardDelete {
-    uiChannelType: string
-    mobileAccountConfig: string
-    sendSms: string
-    mmrpConfig: string
-    identityVerificationFlag: string
-    eActionType: string
-    delinkReason: string
-    actionType: string
+    uiChannelType?: string
+    mobileAccountConfig?: string
+    sendSms?: string
+    mmrpConfig?: string
+    identityVerificationFlag?: string
+    eActionType?: string
+    delinkReason?: string
+    actionType?: string
     defaultAccount?: string
     cpinFlag?: string
     cardTypeFlag?: string
-    fp: string
+    fp?: string
     msisdn: string
     token: string
     accountAliasName: string
