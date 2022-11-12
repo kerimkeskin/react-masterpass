@@ -13,7 +13,6 @@ const initialState = {
   version: '',
   clientType: '',
   sendSmsLanguage: '',
-  referenceNo: '',
   clientIp: '',
   dateTime: '',
 }
