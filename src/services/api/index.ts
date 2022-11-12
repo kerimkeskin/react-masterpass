@@ -1,5 +1,6 @@
 import { card } from './card'
 import { otp } from './otp'
+import { payment } from './payment'
 
 /**
  * All api calls
@@ -21,6 +22,13 @@ class api {
    * @memberof api
    */
   static otp = otp
+  /**
+   *
+   * Payment
+   * @static
+   * @memberof api
+   */
+  static payment = payment
 }
 
 export { api }
