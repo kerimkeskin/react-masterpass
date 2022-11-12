@@ -9,4 +9,16 @@ export namespace Account {
     fp?: string | null
     referenceNo?: string
   }
+
+  export interface ILinkAccountRequest {
+    params: IReqLinkAccount
+  }
+  export interface IReqLinkAccount {
+    token: string
+    msisdn: string
+    cardAliasName: string
+    sendSms?: string
+    referenceNo?: string
+    fp?: string | null
+  }
 }
