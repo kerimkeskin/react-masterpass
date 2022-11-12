@@ -10,7 +10,7 @@ class payment {
    * purchase transaction
    *
    * @static
-   * @memberof purchase
+   * @memberof payment
    */
   static purchase = async ({ params }: Payment.IPurchaseRequest) => {
     const defaultParams = {
