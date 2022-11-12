@@ -6,7 +6,6 @@ export const config: IConfig = {
   version: '36.4',
   clientType: '1',
   sendSmsLanguage: 'tur',
-  referenceNo: '',
   clientIp: '',
   dateTime: new Date().toISOString(),
 }

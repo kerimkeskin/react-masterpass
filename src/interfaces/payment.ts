@@ -8,10 +8,10 @@ export namespace Payment {
     cvc: string
     installmentCount: number
     token: string
-    userId: string
     msisdn: string
     listAccountName: string
     amount: string
+    userId?: string
     aav?: string
     sendSmsMerchant?: string
     sendSms?: string
@@ -28,5 +28,6 @@ export namespace Payment {
     password?: string
     encPassword?: string
     fp?: string | null
+    referenceNo?: string
   }
 }

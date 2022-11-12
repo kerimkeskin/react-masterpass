@@ -10,6 +10,7 @@ export namespace OTP {
     token?: string
     sendSms?: string
     fp?: string | null
+    referenceNo?: string
   }
 
   export interface IOTPResendRequest {
@@ -19,5 +20,6 @@ export namespace OTP {
   export interface IReqOTPResend {
     validationRefNo: string
     sendSms?: string
+    referenceNo?: string
   }
 }

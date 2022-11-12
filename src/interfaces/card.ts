@@ -35,7 +35,7 @@ export namespace Card {
     uiChannelType?: string
     timeZone?: string
     sendSms?: string
-    referenceNo?: string | null
+    referenceNo?: string
     mobileAccountConfig?: string
     identityVerificationFlag?: string
     mmrpConfig?: string
@@ -70,6 +70,7 @@ export namespace Card {
     cpinFlag?: string
     cardTypeFlag?: string
     fp?: string
+    referenceNo?: string
     msisdn: string
     token: string
     accountAliasName: string
