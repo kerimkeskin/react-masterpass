@@ -1,4 +1,4 @@
-import { handleValidationTypeForPurchase } from './../../utils/error-helpers'
+import { handleValidationType, handleValidationTypeForPurchase } from './../../utils/error-helpers'
 import { MP } from '../../interfaces/masterpass'
 import { RSA } from '../../utils/RSA'
 import request from '../request'
@@ -57,6 +57,67 @@ class payment {
       return {
         validationToken: response.Data.Body.Fault.Detail.ServiceFaultDetail.Token,
         validationType: handleValidationTypeForPurchase(errorResponse),
+        errorMessage: errorResponse.ResponseDesc,
+      }
+    }
+  }
+  /**
+   *
+   * purchase transaction and register card
+   *
+   * @static
+   * @memberof payment
+   */
+  static purchaseAndRegister = async ({ params }: Payment.IPurchaseAndRegisterRequest) => {
+    const defaultParams = {
+      cardHolderName: '',
+      orderNo: '',
+      installmentCount: 0,
+      rewardName: '',
+      rewardValue: '',
+      firstName: '',
+      lastName: '',
+      gender: '',
+      paymentType: '',
+      merchantId: '',
+      macroMerchantId: '',
+      actionType: 'A',
+      moneyCardInvoiceAmount: null,
+      moneyCardMigrosDiscountAmount: null,
+      moneyCardPaymentAmount: null,
+      moneyCardExtraDiscountAmount: null,
+      moneyCardProductBasedDiscountAmount: null,
+      sendSms: 'Y',
+      fp: '',
+      referenceNo: '',
+    }
+
+    const cvc = RSA.encrypt(params.cvc)
+    const rtaPan = RSA.encrypt(params.rtaPan)
+
+    const serviceParams: Payment.IReqPurchaseAndRegister = {
+      ...defaultParams,
+      ...params,
+      ...{ cvc, rtaPan },
+    }
+
+    const response: MP.IRes = await request.post(`/purchaseAndRegister`, serviceParams)
+
+    if (response.error)
+      return {
+        errorMessage: response.error,
+      }
+
+    const errorResponse = response.Data.Body.Fault.Detail.ServiceFaultDetail
+
+    if (errorResponse.ResponseCode === '0000' || errorResponse.ResponseCode === '') {
+      return {
+        data: response.Data.Body.Response,
+      }
+    } else {
+      return {
+        validationToken: response.Data.Body.Fault.Detail.ServiceFaultDetail.Token,
+        validationType: handleValidationType(errorResponse),
         errorMessage: errorResponse.ResponseDesc,
       }
     }
