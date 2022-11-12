@@ -49,5 +49,4 @@ const useMasterpass = () => {
   return context
 }
 
-export { MasterpassProvider, MasterpassContext }
-export default useMasterpass
+export { MasterpassProvider, MasterpassContext, useMasterpass }
