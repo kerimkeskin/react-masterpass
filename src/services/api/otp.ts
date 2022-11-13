@@ -44,6 +44,7 @@ class otp {
         validationToken: response.Data.Body.Fault.Detail.ServiceFaultDetail.Token,
         validationType: handleValidationType(errorResponse),
         errorMessage: errorResponse.ResponseDesc,
+        url3D: errorResponse.Url3D,
       }
     }
   }
@@ -82,6 +83,7 @@ class otp {
         validationToken: response.Data.Body.Fault.Detail.ServiceFaultDetail.Token,
         validationType: handleValidationType(errorResponse),
         errorMessage: errorResponse.ResponseDesc,
+        url3D: errorResponse.Url3D,
       }
     }
   }
