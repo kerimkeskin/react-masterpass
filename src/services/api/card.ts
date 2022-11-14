@@ -13,7 +13,14 @@ class card {
    * @memberof card
    */
   static list = async ({ params }: Card.IListRequest) => {
-    const response: MP.IRes = await request.post(`/listManagement`, params)
+    const defaultParams = {
+      listType: 'ACCOUNT',
+      sendSms: 'Y',
+    }
+
+    const serviceParams: Card.IReqCardList = { ...defaultParams, ...params }
+
+    const response: MP.IRes = await request.post(`/listManagement`, serviceParams)
 
     if (response.error)
       return {
@@ -51,7 +58,6 @@ class card {
       homeState: null,
       homeCity: null,
       homeAddress: null,
-      accountAliasName: null,
       uiChannelType: '6',
       timeZone: '+01',
       sendSms: 'N',
