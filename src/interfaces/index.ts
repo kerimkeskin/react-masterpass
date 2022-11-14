@@ -1,0 +1,6 @@
+export type { Account } from './account'
+export type { Card } from './card'
+export type { IConfig } from './config'
+export type { MP } from './masterpass'
+export type { OTP } from './otp'
+export type { Payment } from './payment'
