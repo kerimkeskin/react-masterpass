@@ -14,7 +14,6 @@ const initialState = {
   clientType: '',
   sendSmsLanguage: '',
   clientIp: '',
-  dateTime: '',
 }
 
 const MasterpassContext = createContext(initialState)
