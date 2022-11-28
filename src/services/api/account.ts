@@ -16,6 +16,7 @@ class account {
       sendSms: 'Y',
       fp: '',
       referenceNo: '',
+      dateTime: new Date().toISOString(),
     }
 
     const serviceParams: Account.IReqCheckMasterpass = { ...defaultParams, ...params }
@@ -52,6 +53,7 @@ class account {
       referenceNo: '',
       cardAliasName: '',
       fp: '',
+      dateTime: new Date().toISOString(),
     }
 
     const serviceParams: Account.IReqLinkAccount = { ...defaultParams, ...params }

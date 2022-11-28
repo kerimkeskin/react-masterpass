@@ -7,5 +7,4 @@ export const config: IConfig = {
   clientType: '1',
   sendSmsLanguage: 'tur',
   clientIp: '',
-  dateTime: new Date().toISOString(),
 }

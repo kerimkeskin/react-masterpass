@@ -29,6 +29,7 @@ export namespace Payment {
     encPassword?: string
     fp?: string | null
     referenceNo?: string
+    dateTime?: string
   }
 
   export interface IPurchaseAndRegisterRequest {
@@ -63,5 +64,6 @@ export namespace Payment {
     sendSms?: string
     fp?: string
     referenceNo?: string
+    dateTime?: string
   }
 }

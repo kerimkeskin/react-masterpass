@@ -30,6 +30,7 @@ class payment {
       password: '',
       encPassword: '',
       fp: '',
+      dateTime: new Date().toISOString(),
     }
 
     const cvc = RSA.encrypt(params.cvc)
@@ -91,6 +92,7 @@ class payment {
       sendSms: 'Y',
       fp: '',
       referenceNo: '',
+      dateTime: new Date().toISOString(),
     }
 
     const cvc = RSA.encrypt(params.cvc)

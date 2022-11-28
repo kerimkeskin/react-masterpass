@@ -16,6 +16,7 @@ class card {
     const defaultParams = {
       listType: 'ACCOUNT',
       sendSms: 'Y',
+      dateTime: new Date().toISOString(),
     }
 
     const serviceParams: Card.IReqCardList = { ...defaultParams, ...params }
@@ -71,6 +72,7 @@ class card {
       delinkReason: null,
       actionType: 'A',
       fp: null,
+      dateTime: new Date().toISOString(),
     }
 
     const serviceParams: Card.IReqCardRegister = {
@@ -124,6 +126,7 @@ class card {
       cpinFlag: 'Y',
       cardTypeFlag: '05',
       fp: '',
+      dateTime: new Date().toISOString(),
     }
 
     const serviceParams: Card.IReqCardDelete = { ...defaultParams, ...params }

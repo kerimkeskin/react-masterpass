@@ -8,6 +8,7 @@ export namespace Account {
     sendSms?: string
     fp?: string | null
     referenceNo?: string
+    dateTime?: string
   }
 
   export interface ILinkAccountRequest {
@@ -20,5 +21,6 @@ export namespace Account {
     sendSms?: string
     referenceNo?: string
     fp?: string | null
+    dateTime?: string
   }
 }

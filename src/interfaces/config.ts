@@ -5,5 +5,4 @@ export interface IConfig {
   clientIp: string
   version: string
   clientType: string
-  dateTime: string
 }

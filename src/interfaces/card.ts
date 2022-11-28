@@ -17,6 +17,7 @@ export namespace Card {
     msisdn: string
     listType: string
     sendSms: string
+    dateTime?: string
   }
   export interface IListRequest {
     params: IReqCardList
@@ -52,6 +53,7 @@ export namespace Card {
     msisdn: string
     cvc: string
     rtaPan: string
+    dateTime?: string
   }
   export interface IRegisterRequest {
     params: IReqCardRegister
@@ -74,6 +76,7 @@ export namespace Card {
     msisdn: string
     token: string
     accountAliasName: string
+    dateTime?: string
   }
   export interface IDeleteRequest {
     params: IReqCardDelete

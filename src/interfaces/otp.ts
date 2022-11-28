@@ -11,6 +11,7 @@ export namespace OTP {
     sendSms?: string
     fp?: string | null
     referenceNo?: string
+    dateTime?: string
   }
 
   export interface IOTPResendRequest {
@@ -21,5 +22,6 @@ export namespace OTP {
     validationRefNo: string
     sendSms?: string
     referenceNo?: string
+    dateTime?: string
   }
 }

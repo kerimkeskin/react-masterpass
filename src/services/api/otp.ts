@@ -16,6 +16,7 @@ class otp {
     const defaultParams = {
       sendSms: 'Y',
       fp: null,
+      dateTime: new Date().toISOString(),
     }
     const validationCode = type === 'mpin' ? RSA.encrypt(params.validationCode) : params.validationCode
 
@@ -60,6 +61,7 @@ class otp {
     const defaultParams = {
       validationRefNo: '',
       sendSms: 'Y',
+      dateTime: new Date().toISOString(),
     }
 
     const serviceParams: OTP.IReqOTPResend = { ...defaultParams, ...params }
