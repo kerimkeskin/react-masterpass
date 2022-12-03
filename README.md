@@ -70,7 +70,8 @@ export default function Masterpass() {
 ```jsx 
 // YourParentComponent.tsx
 import React from 'react'
- 
+import dynamic from 'next/dynamic';
+
 const Masterpass = dynamic(() => import('./Masterpass'), {
   ssr: false,
 })
