@@ -32,7 +32,7 @@ export namespace Card {
     homeState?: string | null
     homeCity?: string | null
     homeAddress?: string | null
-    accountAliasName?: null
+    accountAliasName?: string | null
     uiChannelType?: string
     timeZone?: string
     sendSms?: string
