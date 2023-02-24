@@ -5,6 +5,11 @@
 ```
 npm i @kerim-keskin/react-masterpass
 ```
+or
+
+```
+yarn add @kerim-keskin/react-masterpass
+```
 
 ## Configuration
 
