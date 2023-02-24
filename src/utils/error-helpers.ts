@@ -2,7 +2,8 @@ import { MP } from '../interfaces/masterpass'
 
 export const handleValidationType = (errorResponse: MP.IServiceFaultDetail) => {
   switch (errorResponse.ResponseCode) {
-    case '5001' || '5008':
+    case '5001':
+    case '5008':
       return 'showOTP'
     case '5010':
       return 'show3D'
