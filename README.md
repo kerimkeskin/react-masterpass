@@ -113,7 +113,7 @@ export default function ParentComponent() {
       // referenceNo: '',
     }
 
-    const { data, errorMessage } = await api.account.checkMasterpass({ params })
+    const { data, errorMessage, errorCode } = await api.account.checkMasterpass({ params })
 
     // do something
   }
@@ -122,6 +122,7 @@ export default function ParentComponent() {
 |--------------|-----------|----------|--------------------------------|
 | data         | undefined | `string` | Account status (eg: "0110001") |
 | errorMessage | -         | `string` | Error message                  |
+| errorCode    | -         | `string` | Error code                     |
                                               
 
 `linkAccount` - Link account to masterpass
@@ -142,7 +143,7 @@ export default function ParentComponent() {
       // fp: '',
     }
 
-    const { data, errorMessage, validationToken, validationType, url3D } = await api.account.link({ params })
+    const { data, errorMessage, errorCode, validationToken, validationType, url3D } = await api.account.link({ params })
     
 
     // do something
@@ -153,6 +154,7 @@ export default function ParentComponent() {
 |-----------------|-----------|----------|-----------------------------------------|
 | data            | undefined | `string` | Account status (ex: "0110001")          |
 | errorMessage    | -         | `string` | Error message                           |
+| errorCode       | -         | `string` | Error code                              |
 | validationToken | undefined | `string` | Token to be used for next transaction   |
 | validationType  | -         | `string` | 'showOTP' / 'show3D' / 'showMpin'       |
 | url3D           | undefined | `string` | URL information for 3D verification     |
@@ -175,7 +177,7 @@ export default function ParentComponent() {
       // sendSms: 'Y',
     }
 
-    const { data, errorMessage } = await api.card.list({ params })
+    const { data, errorMessage, errorCode } = await api.card.list({ params })
 
     // do something
   }
@@ -184,6 +186,7 @@ export default function ParentComponent() {
 |--------------|-----------|----------|--------------------------------|
 | data         | undefined | `string` | Returns the list of cards      |
 | errorMessage | -         | `string` | Error message                  |
+| errorCode    | -         | `string` | Error code                     |
   
 `register` - Register card
 ```jsx 
@@ -225,7 +228,7 @@ export default function ParentComponent() {
       // actionType: 'A',
       // fp: null,
     }
-    const { data, errorMessage, validationToken, validationType } = await api.card.register({ params })
+    const { data, errorMessage, errorCode, validationToken, validationType } = await api.card.register({ params })
 
     // do something
   }
@@ -234,6 +237,7 @@ export default function ParentComponent() {
 |-----------------|-----------|----------|-----------------------------------------|
 | data            | undefined | `{...}`  | -                                       |
 | errorMessage    | -         | `string` | Error message                           |
+| errorCode       | -         | `string` | Error code                              |
 | validationToken | undefined | `string` | Token to be used for next transaction   |
 | validationType  | -         | `string` | 'showOTP' / 'show3D' / 'showMpin'       |
 | url3D           | undefined | `string` | URL information for 3D verification     |
@@ -267,7 +271,7 @@ export default function ParentComponent() {
       // fp: '',
     }
 
-    const { data, errorMessage } = await api.card.delete({ params })
+    const { data, errorMessage, errorCode } = await api.card.delete({ params })
 
     // do something
   }
@@ -276,6 +280,7 @@ export default function ParentComponent() {
 |--------------|-----------|----------|--------------------------------|
 | data         | undefined | `{...}`  | -                              |
 | errorMessage | -         | `string` | Error message                  |
+| errorCode    | -         | `string` | Error code                     |
 
 
 ## OTP
@@ -300,12 +305,7 @@ export default function ParentComponent() {
 
     const type = '' // mpin | ''
 
-    const {
-      data,
-      validationType,
-      errorMessage,
-      validationToken,
-    } = await api.otp.verify({ params, type })
+    const { data, validationType, errorMessage, errorCode, validationToken } = await api.otp.verify({ params, type })
 
     // do something
   }
@@ -315,6 +315,7 @@ export default function ParentComponent() {
 | data            | undefined | `{...}`  | -                                       |
 | type            | ""        | `string` | mpin / ""                               |
 | errorMessage    | -         | `string` | Error message                           |
+| errorCode       | -         | `string` | Error code                              |
 | validationToken | undefined | `string` | Token to be used for next transaction   |
 | validationType  | -         | `string` | 'showOTP' / 'show3D' / 'showMpin'       |
 | url3D           | undefined | `string` | URL information for 3D verification     |
@@ -332,7 +333,7 @@ export default function ParentComponent() {
       // sendSms: 'Y',
       // referenceNo: '',
     }
-    const { data, errorMessage, validationToken, validationType } = await api.otp.resend({ params })
+    const { data, errorMessage, errorCode, validationToken, validationType } = await api.otp.resend({ params })
 
     // do something
   }
@@ -341,6 +342,7 @@ export default function ParentComponent() {
 |-----------------|-----------|----------|-----------------------------------------|
 | data            | undefined | `{...}`  | -                                       |
 | errorMessage    | -         | `string` | Error message                           |
+| errorCode       | -         | `string` | Error code                              |
 | validationToken | undefined | `string` | Token to be used for next transaction   |
 | validationType  | -         | `string` | 'showOTP' / 'show3D' / 'showMpin'       |
 | url3D           | undefined | `string` | URL information for 3D verification     |
@@ -384,7 +386,7 @@ export default function ParentComponent() {
       // fp: '',
     }
 
-    const { data, errorMessage, validationToken, validationType } = await api.payment.purchase({ params })
+    const { data, errorMessage, errorCode, validationToken, validationType } = await api.payment.purchase({ params })
 
     // do something
   }
@@ -393,6 +395,7 @@ export default function ParentComponent() {
 |-----------------|-----------|----------|-----------------------------------------|
 | data            | undefined | `{...}`  | -                                       |
 | errorMessage    | -         | `string` | Error message                           |
+| errorCode       | -         | `string` | Error code                              |
 | validationToken | undefined | `string` | Token to be used for next transaction   |
 | validationType  | -         | `string` | 'showOTP' / 'show3D' / 'showMpin'       |
 | url3D           | undefined | `string` | URL information for 3D verification     |
@@ -436,7 +439,7 @@ export default function ParentComponent() {
       // referenceNo: '',
     }
 
-    const { data, errorMessage, validationToken, validationType } = await api.payment.purchaseAndRegister({ params })
+    const { data, errorMessage, errorCode, validationToken, validationType } = await api.payment.purchaseAndRegister({ params })
 
     // do something
   }
@@ -445,6 +448,7 @@ export default function ParentComponent() {
 |-----------------|-----------|----------|-----------------------------------------|
 | data            | undefined | `{...}`  | -                                       |
 | errorMessage    | -         | `string` | Error message                           |
+| errorCode       | -         | `string` | Error code                              |
 | validationToken | undefined | `string` | Token to be used for next transaction   |
 | validationType  | -         | `string` | 'showOTP' / 'show3D' / 'showMpin'       |
 | url3D           | undefined | `string` | URL information for 3D verification     |
