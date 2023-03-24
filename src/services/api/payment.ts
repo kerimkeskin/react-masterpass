@@ -60,6 +60,7 @@ class payment {
         validationToken: response.Data.Body.Fault.Detail.ServiceFaultDetail.Token,
         validationType: handleValidationTypeForPurchase(errorResponse),
         errorMessage: errorResponse.ResponseDesc,
+        errorCode: errorResponse.ResponseCode,
         url3D: errorResponse.Url3D,
       }
     }
@@ -124,6 +125,7 @@ class payment {
         validationToken: response.Data.Body.Fault.Detail.ServiceFaultDetail.Token,
         validationType: handleValidationType(errorResponse),
         errorMessage: errorResponse.ResponseDesc,
+        errorCode: errorResponse.ResponseCode,
         url3D: errorResponse.Url3D,
       }
     }
