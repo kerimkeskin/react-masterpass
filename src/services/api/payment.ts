@@ -49,8 +49,9 @@ class payment {
       }
 
     const errorResponse = response.Data.Body.Fault.Detail.ServiceFaultDetail
+    const isSuccess = errorResponse.ResponseCode === '0000' || errorResponse.ResponseCode === ''
 
-    if (errorResponse.ResponseCode === '0000' || errorResponse.ResponseCode === '') {
+    if (isSuccess) {
       return {
         data: response.Data.Body.Response,
       }
@@ -112,8 +113,9 @@ class payment {
       }
 
     const errorResponse = response.Data.Body.Fault.Detail.ServiceFaultDetail
+    const isSuccess = errorResponse.ResponseCode === '0000' || errorResponse.ResponseCode === ''
 
-    if (errorResponse.ResponseCode === '0000' || errorResponse.ResponseCode === '') {
+    if (isSuccess) {
       return {
         data: response.Data.Body.Response,
       }

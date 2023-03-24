@@ -28,15 +28,16 @@ class card {
         errorMessage: response.error,
       }
 
-    const responseCode = response.Data.Body.Fault.Detail.ServiceFaultDetail.ResponseCode
+    const errorResponse = response.Data.Body.Fault.Detail.ServiceFaultDetail
+    const isSuccess = errorResponse.ResponseCode === '0000' || errorResponse.ResponseCode === ''
 
-    if (responseCode === '0000' || responseCode === '') {
+    if (isSuccess) {
       return {
         data: response.Data.Body.Response.Result.TransactionBody.ListItems?.ListItem,
       }
     } else {
       return {
-        errorMessage: response.Data.Body.Fault.Detail.ServiceFaultDetail.ResponseDesc,
+        errorMessage: errorResponse.ResponseDesc,
       }
     }
   }
@@ -89,8 +90,9 @@ class card {
       }
 
     const errorResponse = response.Data.Body.Fault.Detail.ServiceFaultDetail
+    const isSuccess = errorResponse.ResponseCode === '0000' || errorResponse.ResponseCode === ''
 
-    if (errorResponse.ResponseCode === '0000' || errorResponse.ResponseCode === '') {
+    if (isSuccess) {
       return {
         data: response.Data.Body.Response,
       }
@@ -139,8 +141,9 @@ class card {
       }
 
     const errorResponse = response.Data.Body.Fault.Detail.ServiceFaultDetail
+    const isSuccess = errorResponse.ResponseCode === '0000' || errorResponse.ResponseCode === ''
 
-    if (errorResponse.ResponseCode === '0000' || errorResponse.ResponseCode === '') {
+    if (isSuccess) {
       return {
         data: response.Data.Body.Response,
       }
