@@ -1,20 +1,21 @@
 {
   "name": "@kerim-keskin/react-masterpass",
-  "version": "1.1.2",
+  "version": "1.1.6",
   "description": "masterpass integration for react apps",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
   "scripts": {
-    "build": "yarn build:esm && yarn build:cjs",
+    "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
     "prepare": "npm run build",
     "prepublishOnly": "npm run prettier && npm run lint",
     "rollup": "rollup -c",
-    "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
-    "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "./node_modules/.bin/eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
+    "prettier": "./node_modules/.bin/prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish": "npm run build && npm publish --access public"
   },
   "repository": {
     "type": "git",
@@ -50,7 +51,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^2.7.1",
+    "prettier": "^3.6.2",
     "rollup": "^3.2.5",
     "typescript": "^4.8.4"
   },
