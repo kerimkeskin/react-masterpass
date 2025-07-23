@@ -80,7 +80,7 @@ class card {
     const serviceParams: Card.IReqCardRegister = {
       ...defaultParams,
       ...params,
-      ...{ rtaPan: RSA.encrypt(params.rtaPan), cvc: RSA.encrypt(params.cvc) },
+      ...{ rtaPan: await RSA.encrypt(params.rtaPan), cvc: await RSA.encrypt(params.cvc) },
     }
 
     const response: MP.IRes = await request.post(`/register`, serviceParams)

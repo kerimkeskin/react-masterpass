@@ -18,7 +18,7 @@ class otp {
       fp: null,
       dateTime: new Date().toISOString(),
     }
-    const validationCode = type === 'mpin' ? RSA.encrypt(params.validationCode) : params.validationCode
+    const validationCode = type === 'mpin' ? await RSA.encrypt(params.validationCode || '') : params.validationCode
 
     const serviceParams: OTP.IReqOTPVerify = {
       ...defaultParams,

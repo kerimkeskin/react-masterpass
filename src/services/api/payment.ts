@@ -33,7 +33,7 @@ class payment {
       dateTime: new Date().toISOString(),
     }
 
-    const cvc = RSA.encrypt(params.cvc)
+    const cvc = await RSA.encrypt(params.cvc)
 
     const serviceParams: Payment.IReqPurchase = {
       ...defaultParams,
@@ -97,8 +97,8 @@ class payment {
       dateTime: new Date().toISOString(),
     }
 
-    const cvc = RSA.encrypt(params.cvc)
-    const rtaPan = RSA.encrypt(params.rtaPan)
+    const cvc = await RSA.encrypt(params.cvc)
+    const rtaPan = await RSA.encrypt(params.rtaPan)
 
     const serviceParams: Payment.IReqPurchaseAndRegister = {
       ...defaultParams,
