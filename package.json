@@ -1,10 +1,11 @@
 {
   "name": "@kerim-keskin/react-masterpass",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "masterpass integration for react apps",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
+  "sideEffects": false,
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
